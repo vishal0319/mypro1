@@ -1,0 +1,72 @@
+{% load static%}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Expenditure</title>
+<link rel="stylesheet" type="text/css" href="{%static 'view.css' %}" media="all">
+<script type="text/javascript" src="{%static 'view.js' %}"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="{%static 'top.png' %}"></script>
+
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="{%static 'top.png' %}" alt="">
+	<div id="form_container">
+	
+		
+	
+					<div class="form_description">
+			<h2>Expenditure</h2>
+			<p></p>
+        </div>	
+        <form  method="POST">
+            {% csrf_token %}			
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Date and time </label>
+		<div>
+			<input id="element_1" name="date_time"  type="datetime-local" required/> 
+		</div> 
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">Purpose
+ </label>
+		<div>
+			<input id="element_2" name="purpose"  type="text"  required/> 
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description" for="element_3">Remarks </label>
+		<div>
+			<input id="element_3" name="remarks"  type="text" required/> 
+		</div> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="9851" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+        </li>
+        
+            </ul>
+            {% if messages %}
+	{% for message in messages %}
+	<h2>{{message}}</h2>
+	{% endfor %}
+	{% endif %}
+		</form>	
+		
+	</div>
+	<img id="bottom" src="{%static 'bottom.png' %}">
+	</body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE <html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Student registration</title>
+<link rel="stylesheet" type="text/css" href="{%static 'view.css' %}" media="all">
+
+<script type="text/javascript" src="{%static 'view.js' %}"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body id="main_body" >
+	
+	 <img id="top" src="{%static 'top.png' %}" alt=""> 
+	
+	<div class="form_description"></div>
+				 
+	
+	<h2>Student registration</h2>				
+	<p>Contact : (+91)9236745674 or 
+email : core_team@rvce.edu.in for details of merchandise or for sponsoring.</p>
+		</div>
+		<form method="POST" >	
+			{% csrf_token %}	
+		<u1>			
+			
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Student_Name </label>
+		<div>
+			<input id="element_1"  name="Student_name" required/> 
+		</div> 
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">USN </label>
+		<div>
+			<input id="element_2" name="USN" pattern="[1RV]{3}[0-9]{2}[A-Z]{2}[0-9]{3}" required/> 
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description" for="element_3">Email ID </label>
+		<div>
+			<input id="element_3" type="email" name="Email_id" required/> 
+		</div> 
+		</li>		<li id="li_4" >
+		<label class="description" for="element_4">Phone number </label>
+		<div>
+			<input id="element_4" name="Phone_number" required/> 
+		</div> 
+		</li>		<li id="li_5" >
+		<label class="description" for="element_5">Select Event </label>
+		<div>
+		
+		<select class="element select medium" id="element_5"  name="Event_name" required> 
+			<option value="" selected="selected" ></option>
+<option value="Rapid fire" >Rapid fire</option>
+<option value="Mime" >Mime</option>
+<option value="Neymar5" >Neymar5</option>
+<option value="Dance competition" >Dance competition</option>
+<option value="Rap battle" >Rap battle</option>
+<option value="IPL auction" >IPL auction</option>
+
+		</select> 
+		</div> 
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="9851" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+	
+		
+	</u1>
+	{% if messages %}
+	{% for message in messages %}
+	<h2>{{message}}</h2>
+	{% endfor %}
+	{% endif %}
+</form>	
+	</div>
+	
+	</body>
+</html>

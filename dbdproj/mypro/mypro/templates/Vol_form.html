@@ -1,0 +1,115 @@
+{%load static%}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <title>Volunteer registration</title> -->
+<link rel="stylesheet" type="text/css" href="{%static 'view.css' %}" media="all">
+<script type="text/javascript" src="{%static 'view.js' %}"></script>
+<script type="text/javascript" src="{%static 'calender.js' %}"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="{%static 'top.png' %}" alt="">
+	<div id="form_container">
+	
+		<h2>Volunteer registration</h2>
+	
+					<div class="form_description">
+			
+			<p>Contact : (+91)9236745674 or 
+email : core_team@rvce.edu.in for details of merchandise or for sponsoring.</p>
+		</div>	
+		<form method="POST" >	
+			{% csrf_token %}					
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Full Name </label>
+		<div>
+			<input id="element_1" name="Student_name" required/> 
+		</div> 
+		</li>		<li id="li_2" >
+		<label class="description" for="element_2">USN </label>
+		<div>
+			<input id="element_2" name="USN" pattern="[1RV]{3}[0-9]{2}[A-Z]{2}[0-9]{3}" required/> 
+		</div> 
+		</li>		<li id="li_3" >
+		<label class="description"  for="element_3">In Time </label>
+		<div>
+			<input id="element_3" type="time" name="In_time" required/> 
+		</div> 
+		</li>		<li id="li_4" >
+		<label class="description" for="element_4">Out Time </label>
+		<div>
+			<input id="element_4"  type="time" name="Out_time"required/> 
+		</div> 
+		</li>		<li id="li_5" >
+		<label class="description" for="element_5">Select Event </label>
+		<div>
+			<select class="element select medium" id="element_5" name="Event_name" required> 
+				<option value="" placeholder="--SELECT EVENT--" selected="selected" ></option>
+	<option value="Rapid fire" >Rapid fire</option>
+	<option value="Mime" >Mime</option>
+	<option value="Neymar5" >Neymar5</option>
+	<option value="Dance competition" >Dance competition</option>
+	<option value="Rap battle" >Rap battle</option>
+	<option value="IPL auction" >IPL auction</option>
+
+			</select> 
+		</div> 
+		</li>		<li id="li_6" >
+		<label class="description" for="element_6">Date </label>
+		<span>
+			<input id="element_6_1" name="Date" type="date" required> /
+			<label for="element_6_1">Date</label>
+		</span>
+		<!-- <script type="text/javascript"> -->
+			<!-- Calendar.setup({
+			inputField	 : "element_6_3",
+			baseField    : "element_6",
+			displayArea  : "calendar_6",
+			button		 : "cal_img_6",
+			ifFormat	 : "%B %e, %Y",
+			onSelect	 : selectDate
+			}); -->
+		<!-- </script> -->
+		 
+		</li>		<li id="li_8" >
+		<label class="description" for="element_8">Attendance status(NSAR) </label>
+		<span>
+			<input id="element_8_1" name="Attendance_status" class="element checkbox" type="checkbox" value="YES" required />
+<label class="choice" for="element_8_1">Yes</label>
+<input id="element_8_2" name="element_8_2" class="element checkbox" type="checkbox" value="No" />
+<label class="choice" for="element_8_2">No</label>
+
+		</span>
+		</li>		<li class="section_break">
+			<h3>Note: If false info is given, certificate will not be provided to claim attendance.</h3>
+			<p></p>
+		</li>
+			
+					<li class="buttons">
+			    <input type="hidden" name="form_id" value="9851" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+			</ul>
+			{% if messages %}
+	{% for message in messages %}
+	<h2>{{message}}</h2>
+	{% endfor %}
+	{% endif %}
+</form>	
+	
+	<img id="bottom" src="{%static 'bottom.png' %}" alt="">
+	</body>
+</html>
